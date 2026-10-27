@@ -1,0 +1,21 @@
+---
+title: "my_penguins.qmd"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+
+summary(penguins)
+
+bills <- penguins |>
+  group_by(species) |>
+  summarize(
+    n = n(),
+    avg_length = mean(bill_length_mm, na.rm = TRUE)
+  )
+
+glimpse(bills)
+```
